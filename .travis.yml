@@ -1,9 +1,11 @@
 os: osx
 osx_image: xcode12u
+language: c
 addons:
   homebrew:
     packages:
       autoconf
       automake
       libtool
-autoreconf --install
+before_script: autoreconf --install
+script: ./configure && make && ./sshpass -h |grep -q used
