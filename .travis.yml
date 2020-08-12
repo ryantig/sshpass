@@ -8,4 +8,4 @@ addons:
       automake
       libtool
 before_script: autoreconf --install
-script: ./configure && make && ./sshpass -h |grep -q used
+script: ./configure && make && ./sshpass -h 2>/dev/null | grep -q used
